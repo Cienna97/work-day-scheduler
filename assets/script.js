@@ -2,13 +2,9 @@ var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-
-
-
-
-$(document).ready(function(){
+function setupCurrentDateEl() {
   $("#currentDay").text(moment().format("MMM Do YYYY, h:mm:ss a"));
-})
+}
 
 
 $("#6am .description").val(localStorage.getItem("hour6"));
@@ -26,3 +22,13 @@ $("#17pm.description").val(localStorage.getItem("hour17"));
 $("#18pm .description").val(localStorage.getItem("hour18"));
 $("#19pm .description").val(localStorage.getItem("hour19"));
 $("#20pm .description").val(localStorage.getItem("hour20"));
+
+
+
+
+
+
+
+setInterval(function() {
+  alert("This alert shows up every five seconds!");
+}, 5000);
