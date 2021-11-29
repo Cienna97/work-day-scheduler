@@ -1,4 +1,4 @@
-$
+moment().format('MMMM Do YYYY, h:mm:ss a')
 
 
 $("#6am .description").val(localStorage.getItem("hour6"));
@@ -22,4 +22,10 @@ function hourTracker() {
   var currentHour = moment().hour();
 
 
+}  // apply new class if task is near/over due date
+if (moment().isAfter(time)) {
+  $(taskEl).addClass("list-group-item-danger");
+} 
+else if (Math.abs(moment().diff(time, "days")) <= 2) {
+  $(taskEl).addClass("list-group-item-warning");
 }
