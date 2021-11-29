@@ -1,4 +1,23 @@
-moment().format('MMMM Do YYYY, h:mm:ss a')
+$(document).ready(function(){
+
+  $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+
+  $(".saveBtn").on("click", function () {
+
+    console.log(this);
+    var text = $(this).siblings(".description").val(); // taken the change from the sibling html description attribute
+    var time = $(this).parent().attr("id"); // taken the change from the parent html id attribute
+
+    //set items in local storage.
+    localStorage.setItem(time, text);
+})
+
+
+})
+
+
+
+
 
 
 $("#6am .description").val(localStorage.getItem("hour6"));
@@ -21,11 +40,30 @@ function hourTracker() {
 
   var currentHour = moment().hour();
 
+   // loop over time blocks
+   $(".time-block").each(function () {
+    var blockHour = parseInt($(this).attr("id").split("hour")[1]);
+    console.log( blockHour, currentHour)
 
-}  // apply new class if task is near/over due date
-if (moment().isAfter(time)) {
-  $(taskEl).addClass("list-group-item-danger");
-} 
-else if (Math.abs(moment().diff(time, "days")) <= 2) {
-  $(taskEl).addClass("list-group-item-warning");
+    //check if we've moved past this time, click into css/html given classes of past, present, or future
+    if (blockHour < currentHour) {
+        $(this).addClass("past");
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+    }
+    else if (blockHour === currentHour) {
+        $(this).removeClass("past");
+        $(this).addClass("present");
+        $(this).removeClass("future");
+    }
+    else {
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+        $(this).addClass("future");
+    }
+})
 }
+hourTracker(); //re-run function
+
+
+
