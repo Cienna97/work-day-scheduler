@@ -1,10 +1,4 @@
-var saveTasks = function() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-};
-
-function setupCurrentDateEl() {
-  $("#currentDay").text(moment().format("MMM Do YYYY, h:mm:ss a"));
-}
+$
 
 
 $("#6am .description").val(localStorage.getItem("hour6"));
@@ -21,14 +15,11 @@ $("#16pm .description").val(localStorage.getItem("hour16"));
 $("#17pm.description").val(localStorage.getItem("hour17"));
 $("#18pm .description").val(localStorage.getItem("hour18"));
 $("#19pm .description").val(localStorage.getItem("hour19"));
-$("#20pm .description").val(localStorage.getItem("hour20"));
+$("#20pm .description").val(localStorage.getItem("hour20")); 
+
+function hourTracker() {
+
+  var currentHour = moment().hour();
 
 
-
-
-
-
-
-setInterval(function() {
-  alert("This alert shows up every five seconds!");
-}, 5000);
+}
