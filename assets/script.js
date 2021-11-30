@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('#currentDay').text(moment().format("MMMM Do YYYY, h:mm:ss a"));
 });
 
-$(".saveBTN").on("click", function () {
+$(".saveBtn").on("click", function () {
         var text = $(this)
         .siblings('.description')
         .val();
@@ -42,6 +42,10 @@ function hourlySchedule() {
 
 }
 
+hourlySchedule();
+
+var interval = setInterval(hourlySchedule, 10000);
+
 
 $("#6am .description").val(localStorage.getItem("hour6"));
 $("#7am .description").val(localStorage.getItem("hour7"));
@@ -59,7 +63,5 @@ $("#18pm .description").val(localStorage.getItem("hour18"));
 $("#19pm .description").val(localStorage.getItem("hour19"));
 $("#20pm .description").val(localStorage.getItem("hour20")); 
 
-hourlySchedule();
 
-var interval = setInterval(hourlySchedule, 10000);
 
