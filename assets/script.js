@@ -17,7 +17,7 @@ $(".saveBtn").on("click", function () {
         $(".notification").removeClass("display");
 
         setTimeout(function() {
-            $(".notification").removeClass("show");
+            $(".notification").removeClass("display");
         }, 10000);
     });
 
