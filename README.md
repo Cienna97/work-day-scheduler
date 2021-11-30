@@ -24,16 +24,17 @@ THEN the saved events persist
 
 # How to employ application 
 
-User will enter schedule for the hour each day to keep a busy work day on track for success! This application offers a helpful solution to not missing any of your tasks, by enabling a red color code
+User will enter schedule for the hour each day to keep a busy work day on track for success! This application offers a helpful solution to not missing any of your tasks, by enabling a red color code when things are close to due, a green background when there is a scheduled task for the day and gray if it in in the past/not filled.
 
 
 # Links 
 
-Github:
+Github: https://github.com/Cienna97/work-day-scheduler.git
 
-Live Application: 
+Live Application: https://cienna97.github.io/work-day-scheduler/
 
 # Visual
+
 
 
 
