@@ -1,12 +1,12 @@
 # Work-Day-Scheduler
 
-# Problem 
+# User Story
 
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
 
-# Solution 
+# Solution
 
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
@@ -24,7 +24,18 @@ THEN the saved events persist
 
 # How to employ application 
 
-User 
+User will enter schedule for the hour each day to keep a busy work day on track for success! This application offers a helpful solution to not missing any of your tasks, by enabling a red color code
+
+
+# Links 
+
+Github:
+
+Live Application: 
+
+# Visual
+
+
 
 
 

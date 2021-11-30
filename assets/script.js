@@ -24,7 +24,7 @@ $("#18pm .description").val(localStorage.getItem("hour18"));
 $("#19pm .description").val(localStorage.getItem("hour19"));
 $("#20pm .description").val(localStorage.getItem("hour20")); 
 
-function hourlyUpdate() {
+function hourlySchedule() {
     var currentHour = moment().hour();
     $(".time-block").each(function() {
         var blockHour = parseInt($(this).attr("id").split("")[0]);
@@ -44,5 +44,5 @@ function hourlyUpdate() {
 
 }
 
-hourlyUpdate();
+hourlySchedule();
 
