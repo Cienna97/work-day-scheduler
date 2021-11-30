@@ -42,9 +42,6 @@ function hourlySchedule() {
 
 }
 
-hourlySchedule();
-
-var interval = setInterval(hourlySchedule, 10000);
 
 $("#6am .description").val(localStorage.getItem("hour6"));
 $("#7am .description").val(localStorage.getItem("hour7"));
@@ -61,4 +58,8 @@ $("#17pm.description").val(localStorage.getItem("hour17"));
 $("#18pm .description").val(localStorage.getItem("hour18"));
 $("#19pm .description").val(localStorage.getItem("hour19"));
 $("#20pm .description").val(localStorage.getItem("hour20")); 
+
+hourlySchedule();
+
+var interval = setInterval(hourlySchedule, 10000);
 
