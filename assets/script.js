@@ -1,22 +1,10 @@
 $(document).ready(function(){
+    $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
 
-  $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
-
-  $(".saveBtn").on("click", function () {
-
-    console.log(this);
-    var text = $(this).siblings(".description").val(); // taken the change from the sibling html description attribute
-    var time = $(this).parent().attr("id"); // taken the change from the parent html id attribute
-
-    //set items in local storage.
-    localStorage.setItem(time, text);
+    $(".saveBTN").on("click", function () {
+        localStorage.setItem(time, text);
+    })
 })
-
-
-})
-
-
-
 
 
 
@@ -36,34 +24,25 @@ $("#18pm .description").val(localStorage.getItem("hour18"));
 $("#19pm .description").val(localStorage.getItem("hour19"));
 $("#20pm .description").val(localStorage.getItem("hour20")); 
 
-function hourTracker() {
+function hourlyUpdate() {
+    var currentHour = moment().hour();
+    $(".time-block").each(function() {
+        var blockHour = parseInt($(this).attr("id").split("")[0]);
 
-  var currentHour = moment().hour();
+        if(blockHour < currentHour)  {
+            $(this).addClass("past");
+        } else if (blockHour === currentHour) {
+            $(this).removeClass("past");
+            $(this).addClass("present");
+        } else {
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+            $(this).addClass("future");
 
-   // loop over time blocks
-   $(".time-block").each(function () {
-    var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-    console.log( blockHour, currentHour)
+        }
+    });
 
-    //check if we've moved past this time, click into css/html given classes of past, present, or future
-    if (blockHour < currentHour) {
-        $(this).addClass("past");
-        $(this).removeClass("future");
-        $(this).removeClass("present");
-    }
-    else if (blockHour === currentHour) {
-        $(this).removeClass("past");
-        $(this).addClass("present");
-        $(this).removeClass("future");
-    }
-    else {
-        $(this).removeClass("present");
-        $(this).removeClass("past");
-        $(this).addClass("future");
-    }
-})
 }
-hourTracker(); //re-run function
 
-
+hourlyUpdate();
 
