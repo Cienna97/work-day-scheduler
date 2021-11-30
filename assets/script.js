@@ -11,9 +11,18 @@ $(document).ready(function(){
         .parent()
         .attr('id');
 
+        localStorage.setItem(time, text);
+
+        $(".notification").removeClass("display");
+
+        setTimeout(function() {
+            $(".notification").removeClass("show");
+        }, 10000);
+    });
+
 
 function hourlySchedule() {
-    var currentHour = moment().hour();
+    var currentHour = moment().hours();
     $(".time-block").each(function() {
         var blockHour = parseInt($(this).attr("id").split("")[0]);
 
@@ -34,8 +43,7 @@ function hourlySchedule() {
 
 hourlySchedule();
 
-
-
+var interval = setInterval(hourlySchedule, 10000);
 
 $("#6am .description").val(localStorage.getItem("hour6"));
 $("#7am .description").val(localStorage.getItem("hour7"));
@@ -52,6 +60,3 @@ $("#17pm.description").val(localStorage.getItem("hour17"));
 $("#18pm .description").val(localStorage.getItem("hour18"));
 $("#19pm .description").val(localStorage.getItem("hour19"));
 $("#20pm .description").val(localStorage.getItem("hour20")); 
-
-
-
